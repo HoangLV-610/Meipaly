@@ -29,45 +29,11 @@ $(document).ready(function () {
   });
 
   // Fancybox
-  Fancybox.bind("[data-fancybox='gallery']", {
-    Toolbar: {
-      display: ["zoom", "close"], // Không cần thêm prev/next ở đây vì chúng là của Carousel
-    },
-    Thumbs: {
-      autoStart: true,
-    },
-    infinite: true,
-    Carousel: {
-      // Tùy chỉnh nút Previous và Next
-      Navigation: {
-        prevTpl: `
-        <button title="Previous" class="carousel__button is-prev" tabindex="0">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-            viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;" xml:space="preserve">
-            <path id="XMLID_28_" d="M315,150H51.213l49.393-49.394c5.858-5.857,5.858-15.355,0-21.213c-5.857-5.857-15.355-5.857-21.213,0
-            l-75,75c-5.858,5.857-5.858,15.355,0,21.213l75,75C82.323,253.535,86.161,255,90,255c3.839,0,7.678-1.465,10.606-4.394
-            c5.858-5.857,5.858-15.355,0-21.213L51.213,180H315c8.284,0,15-6.716,15-15S323.284,150,315,150z"/>
-          </svg>
-        </button>`,
-        nextTpl: `
-          <button title="Next" class="carousel__button is-next" tabindex="0">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" tabindex="-1">
-              <path d="M9 3l9 9-9 9"></path>
-            </svg>
-          </button>`,
-      },
-    },
-  });
+  Fancybox.bind("[data-fancybox='gallery']", {});
 
   $(".blog-icons a").on("click", function (e) {
     e.preventDefault(); // Ngăn chặn điều hướng đến liên kết
   });
-
-  // // Chạy số
-  // $(".number-counter").counterUp({
-  //   delay: 10, // thời gian giữa mỗi bước
-  //   time: 2000, // thời gian tổng cộng (milisecond)
-  // });
 
   // Khi nhấn backToTop
   window.addEventListener("scroll", function () {
@@ -106,5 +72,11 @@ $(document).ready(function () {
     setTimeout(() => {
       wrapMenu.classList.toggle("active");
     }, 10);
+  });
+
+  // Count up
+  $(".counter").countUp({
+    time: 2000,
+    delay: 10,
   });
 });
